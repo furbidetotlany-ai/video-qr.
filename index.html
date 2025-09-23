@@ -3,50 +3,59 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vídeo Vertical</title>
+  <title>Vídeo Vertical Adaptatiu</title>
   <style>
     html, body {
       margin: 0;
       height: 100%;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: #000;
+      background: url('https://3.bp.blogspot.com/-w2J9b1Pjo1A/Wf9kR4zRV_I/AAAAAAAAEsw/bfeFfB56txwam6nCbX8L_9IrIMRYtiPHwCLcBGAs/s1600/dimonis.png') center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
+      color: #fff;
     }
 
-    .video-container {
-      position: relative;
+    .panel {
+      width: 95%;
+      max-width: 450px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .video-ratio {
       width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      background: url('https://3.bp.blogspot.com/-w2J9b1Pjo1A/Wf9kR4zRV_I/AAAAAAAAEsw/bfeFfB56txwam6nCbX8L_9IrIMRYtiPHwCLcBGAs/s1600/dimonis.png') center/cover no-repeat;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
     }
 
-    .video-container iframe {
+    .video-ratio iframe {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
       border: 0;
+      border-radius: 12px;
     }
 
     .overlay-text {
-      position: absolute;
-      bottom: 0;
       width: 100%;
       background: rgba(0,0,0,0.5);
-      color: #fff;
       text-align: center;
-      padding: 16px;
+      padding: 12px 8px;
       box-sizing: border-box;
+      margin-top: 8px;
+      border-radius: 8px;
     }
 
     .overlay-text .title {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 600;
       margin: 0;
     }
@@ -56,19 +65,22 @@
       margin-top: 4px;
     }
 
-    @media (max-width: 400px) {
-      .overlay-text { padding: 12px; }
-      .overlay-text .title { font-size: 1.1rem; }
+    @media (max-width: 360px) {
+      .overlay-text .title { font-size: 1rem; }
       .overlay-text .desc { font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div class="panel">
+    <div class="video-ratio">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&rel=0" 
+              allow="autoplay; encrypted-media" allowfullscreen>
+      </iframe>
+    </div>
     <div class="overlay-text">
       <div class="title">Vídeo de prova</div>
-      <div class="desc">Aquest text surt sobre el vídeo a la part inferior.</div>
+      <div class="desc">Aquest text surt sota el vídeo en mòbil vertical.</div>
     </div>
   </div>
 </body>
