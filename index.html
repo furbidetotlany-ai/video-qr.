@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L'Avernfest - Dimonis de l'Avern Alboraia</title>
+  <title>Vídeo 3/4 Pantalla</title>
   <style>
     html, body {
       margin: 0;
       height: 100%;
-      background: url('https://3.bp.blogspot.com/-w2J9b1Pjo1A/Wf9kR4zRV_I/AAAAAAAAEsw/bfeFfB56txwam6nCbX8L_9IrIMRYtiPHwCLcBGAs/s1600/dimonis.png') center/cover no-repeat;
+      background: url('https://3.bp.blogspot.com/-w2J9b1Pjo1A/Wf9kR4zRV_I/AAAAAAAAEsw/bfeFfB56txwam6nCbX8L_9IrIMRYtiPHwCLcBGAs/s1600/dimonis.png?v=1') center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -30,7 +30,7 @@
     .video-container {
       width: 100%;
       max-width: 100%;
-      height: 100%;
+      height: 75vh; /* ocupa 3/4 de l'altura de la pantalla */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -43,8 +43,6 @@
     .video-container iframe {
       width: 100%;
       height: 100%;
-      max-height: 100vh;
-      aspect-ratio: 9 / 16; /* Manté la relació 9:16 */
       border: 0;
       display: block;
     }
@@ -54,7 +52,6 @@
       bottom: 8px;
       width: 95%;
       background: rgba(0,0,0,0.5);
-      text-align: center;
       padding: 8px;
       border-radius: 8px;
       box-sizing: border-box;
@@ -64,11 +61,13 @@
       font-size: 1.2rem;
       font-weight: 600;
       margin: 0;
+      text-align: center; /* el primer text segueix centrat */
     }
 
     .overlay-text .desc {
       font-size: 1rem;
       margin-top: 4px;
+      text-align: left; /* alineem el segon text a l'esquerra */
     }
 
     @media (max-width: 360px) {
@@ -80,12 +79,12 @@
 <body>
   <div class="panel">
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&rel=0"
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&rel=0&v=1" 
               allow="autoplay; encrypted-media" allowfullscreen>
       </iframe>
       <div class="overlay-text">
-        <div class="title">Dimonis de l'Avern cremant un poble i a la seva gent</div>
-        <div class="desc">D'Alboraia (L'Horta. Pastissos Casolans) i ja portem més de 15 anys a foc i flama!!.</div>
+        <div class="title">Vídeo de prova</div>
+        <div class="desc">Aquest text ara està alineat a l'esquerra.</div>
       </div>
     </div>
   </div>
