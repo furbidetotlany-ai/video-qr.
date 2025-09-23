@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reproductor YouTube des QR</title>
+  <style>
+    :root{
+      --bg-url: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=60');
+      --overlay: rgba(0,0,0,0.35);
+      --text-color: #ffffff;
+      --max-width: 1000px;
+    }
+
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{
+      background-image: var(--bg-url);
+      background-size: cover;
+      background-position: center center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      color:var(--text-color);
+    }
+
+    .panel{
+      width:100%;max-width:var(--max-width);
+      background: linear-gradient(var(--overlay), var(--overlay));
+      border-radius:14px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+    }
+
+    .video-ratio{width:100%;height:0;padding-bottom:56.25%;position:relative}
+    .video-ratio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:8px;}
+
+    .title{font-size:1.25rem;font-weight:600;margin-top:14px}
+    .desc{font-size:1rem;opacity:0.95}
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="video-ratio" id="videoContainer"></div>
+    <div class="title" id="title">Títol del vídeo</div>
+    <div class="desc" id="desc">Descripció o text que vols mostrar sota el vídeo.</div>
+  </div>
+
+  <script>
+    const config = {
+      videoId: 'dQw4w9WgXcQ', // Canvia aquí l'ID del vídeo
+      textTitle: 'Exemple: vídeo des del QR',
+      textDesc: 'Aquest text està sota el reproductor.',
+      bgImage: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=60',
+      autoplay: true,
+      muteOnAutoplay: true,
+    };
+
+    // fons
+    if(config.bgImage){
+      document.documentElement.style.setProperty('--bg-url', `url('${config.bgImage}')`);
+    }
+
+    // texts
+    document.getElementById('title').textContent = config.textTitle;
+    document.getElementById('desc').textContent = config.text
