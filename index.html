@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Reproductor YouTube des QR</title>
+  <title>Avernfest - Fes-te dimoni!</title>
   <style>
     :root{
-      --bg-url: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=60');
+      --bg-url: url('https://3.bp.blogspot.com/-w2J9b1Pjo1A/Wf9kR4zRV_I/AAAAAAAAEsw/bfeFfB56txwam6nCbX8L_9IrIMRYtiPHwCLcBGAs/s1600/dimonis.png');
       --overlay: rgba(0,0,0,0.35);
       --text-color: #ffffff;
       --max-width: 1000px;
@@ -43,43 +43,13 @@
     <div class="video-ratio">
       <iframe
         id="ytplayer"
-        src=""
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&rel=0"
         allow="autoplay; encrypted-media"
         allowfullscreen>
       </iframe>
     </div>
-    <div class="title" id="title">Vídeo de prova</div>
-    <div class="desc" id="desc">Aquest text surt sota el vídeo.</div>
+    <div class="title" id="title">Dimonis de l'Avern d'Alboraia cremant un poble i a la seva gent</div>
+    <div class="desc" id="desc">D'Alboraia (L'Horta. Pastissos Casolans) i ja portem més de 15 anys a foc i flama!!</div>
   </div>
-
-  <script>
-    // 🔹 CONFIGURACIÓ
-    const config = {
-      videoId: "dQw4w9WgXcQ", // 👉 ID del Rickroll (funciona segur)
-      textTitle: "Exemple: vídeo incrustat des del QR",
-      textDesc: "Aquí pots posar el text que vulguis sota el reproductor.",
-      bgImage: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=60",
-      autoplay: true,
-      muteOnAutoplay: true
-    };
-
-    // Fons
-    if(config.bgImage){
-      document.documentElement.style.setProperty('--bg-url', `url('${config.bgImage}')`);
-    }
-
-    // Textos
-    document.getElementById('title').textContent = config.textTitle;
-    document.getElementById('desc').textContent = config.textDesc;
-
-    // URL del vídeo
-    const params = [];
-    if(config.autoplay) params.push("autoplay=1");
-    if(config.muteOnAutoplay) params.push("mute=1");
-    params.push("rel=0","playsinline=1","modestbranding=1");
-
-    const url = `https://www.youtube.com/embed/${config.videoId}?${params.join("&")}`;
-    document.getElementById("ytplayer").src = url;
-  </script>
 </body>
 </html>
