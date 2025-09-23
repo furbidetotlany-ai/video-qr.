@@ -40,26 +40,46 @@
 </head>
 <body>
   <div class="panel">
-    <div class="video-ratio" id="videoContainer"></div>
-    <div class="title" id="title">Títol del vídeo</div>
-    <div class="desc" id="desc">Descripció o text que vols mostrar sota el vídeo.</div>
+    <div class="video-ratio">
+      <iframe
+        id="ytplayer"
+        src=""
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="title" id="title">Vídeo de prova</div>
+    <div class="desc" id="desc">Aquest text surt sota el vídeo.</div>
   </div>
 
   <script>
+    // 🔹 CONFIGURACIÓ
     const config = {
-      videoId: 'https://www.youtube.com/watch?v=ce6aAunYPmc', // Canvia aquí l'ID del vídeo
-      textTitle: 'Exemple: vídeo des del QR',
-      textDesc: 'Aquest text està sota el reproductor.',
-      bgImage: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=60',
+      videoId: "dQw4w9WgXcQ", // 👉 ID del Rickroll (funciona segur)
+      textTitle: "Exemple: vídeo incrustat des del QR",
+      textDesc: "Aquí pots posar el text que vulguis sota el reproductor.",
+      bgImage: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=60",
       autoplay: true,
-      muteOnAutoplay: true,
+      muteOnAutoplay: true
     };
 
-    // fons
+    // Fons
     if(config.bgImage){
       document.documentElement.style.setProperty('--bg-url', `url('${config.bgImage}')`);
     }
 
-    // texts
+    // Textos
     document.getElementById('title').textContent = config.textTitle;
-    document.getElementById('desc').textContent = config.text
+    document.getElementById('desc').textContent = config.textDesc;
+
+    // URL del vídeo
+    const params = [];
+    if(config.autoplay) params.push("autoplay=1");
+    if(config.muteOnAutoplay) params.push("mute=1");
+    params.push("rel=0","playsinline=1","modestbranding=1");
+
+    const url = `https://www.youtube.com/embed/${config.videoId}?${params.join("&")}`;
+    document.getElementById("ytplayer").src = url;
+  </script>
+</body>
+</html>
