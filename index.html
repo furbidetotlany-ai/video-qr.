@@ -2,40 +2,89 @@
 <html lang="ca">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Avernfest - Fes-te dimoni!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reproductor YouTube Adaptatiu</title>
   <style>
-    :root{
+    :root {
       --bg-url: url('https://3.bp.blogspot.com/-w2J9b1Pjo1A/Wf9kR4zRV_I/AAAAAAAAEsw/bfeFfB56txwam6nCbX8L_9IrIMRYtiPHwCLcBGAs/s1600/dimonis.png');
       --overlay: rgba(0,0,0,0.35);
       --text-color: #ffffff;
       --max-width: 1000px;
     }
 
-    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
-    body{
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
       background-image: var(--bg-url);
       background-size: cover;
       background-position: center center;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-      color:var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      color: var(--text-color);
     }
 
-    .panel{
-      width:100%;max-width:var(--max-width);
+    .panel {
+      width: 100%;
+      max-width: var(--max-width);
       background: linear-gradient(var(--overlay), var(--overlay));
-      border-radius:14px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.35);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
       backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .video-ratio{width:100%;height:0;padding-bottom:56.25%;position:relative}
-    .video-ratio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:8px;}
+    .video-ratio {
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 */
+      position: relative;
+    }
 
-    .title{font-size:1.25rem;font-weight:600;margin-top:14px}
-    .desc{font-size:1rem;opacity:0.95}
+    .video-ratio iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 8px;
+    }
+
+    .title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .desc {
+      font-size: 1rem;
+      opacity: 0.95;
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    /* Adaptatiu per mòbils */
+    @media (max-width: 600px) {
+      body {
+        padding: 8px;
+      }
+      .panel {
+        padding: 12px;
+      }
+      .title {
+        font-size: 1.1rem;
+      }
+      .desc {
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -48,8 +97,8 @@
         allowfullscreen>
       </iframe>
     </div>
-    <div class="title" id="title">Dimonis de l'Avern d'Alboraia cremant un poble i a la seva gent</div>
-    <div class="desc" id="desc">D'Alboraia (L'Horta. Pastissos Casolans) i ja portem més de 15 anys a foc i flama!!</div>
+    <div class="title" id="title">Vídeo de prova</div>
+    <div class="desc" id="desc">Aquest text surt sota el vídeo.</div>
   </div>
 </body>
 </html>
