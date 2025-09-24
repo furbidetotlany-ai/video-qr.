@@ -6,170 +6,93 @@
   <title>Avernfest - Dimonis d'Alboraia</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 
-  <!-- Color de la barra del navegador -->
-  <meta name="theme-color" content="#e60000"> <!-- Chrome, Android -->
-  <meta name="msapplication-navbutton-color" content="#e60000"> <!-- Windows Phone -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000"> <!-- iOS Safari -->
+  <meta name="theme-color" content="#e60000">
+  <meta name="msapplication-navbutton-color" content="#e60000">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000">
 
   <style>
-    /* -------------------------
-       Base (igual que tens)
-       ------------------------- */
     html, body {
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-    }
-
-    body {
+      height: 100%;
+      overflow: hidden; /* 👈 Evitem scroll */
       font-family: Arial, sans-serif;
+      background: #000;
       color: #fff;
       text-align: center;
-      background: #000;
-      overflow-x: hidden; /* evitar scroll horitzontal; permet vertical si cal */
-      -webkit-font-smoothing:antialiased;
-      -webkit-text-size-adjust:100%;
     }
 
     .background {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
       background-size: cover;
-      z-index: -2;
+      z-index: -1;
     }
 
     .content {
-      position: relative;
-      z-index: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-between; /* 👈 reparteix tot verticalment */
       align-items: center;
-      min-height: 100vh; /* permitim que creixi si cal */
-      padding: 10px;
+      height: 100vh; /* 👈 sempre exactament la pantalla */
+      padding: 4vh 2vw;
       box-sizing: border-box;
     }
 
-    .video-wrapper {
-      height: 66vh;             /* valor principal */
-      max-height: 66vh;
-      aspect-ratio: 9 / 16;
-      margin: 20px 0;
-      position: relative;
-      width: min(92vw, 420px);  /* evita que el vídeo siguui més ample que la pantalla/contingut */
+    h1 {
+      font-size: 2.5vh; /* 👈 escala amb alçada */
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px #000;
+      margin: 0;
+      white-space: nowrap;
     }
 
-    .video-wrapper video {
-      height: 100%;
+    .video-wrapper {
+      flex: 1; /* ocupa l’espai central */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
+      max-width: 420px;
+    }
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      max-height: 60vh; /* 👈 mai passa del 60% d’alçada */
       object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
-      display: block;
       background: #000;
     }
 
-    h1 {
-      font-size: 1em;
-      margin: 12px 0 6px 0;
-      color: #ffcc00;
-      text-shadow: 2px 2px 5px #000;
-      white-space: nowrap; /* que no es trenque */
-      line-height: 1;
-    }
-
     p {
-      font-size: 0.9rem;
-      margin: 6px 15px;
+      font-size: 1.8vh;
+      margin: 0.5em 10%;
       text-shadow: 2px 2px 5px #000;
-      max-width: 90%;
-      line-height: 1.25;
-      text-align: center;
     }
 
     .cta {
-      margin-top: 6px;
       background: #e60000;
-      padding: 12px 20px;
+      padding: 1em 2em;
       border-radius: 25px;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 2vh;
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-      transition: background 0.2s, transform 0.12s;
-      margin-bottom: 18px;
-      display: inline-block;
+      transition: background 0.3s;
     }
-    .cta:active { transform: translateY(1px); }
     .cta:hover { background: #ff0000; }
 
-    .social {
-      margin-top: 4px;
-      margin-bottom: 8px;
-    }
     .social img {
-      width: 32px;
-      height: 32px;
+      width: 5vh;
+      height: 5vh;
       filter: drop-shadow(0 0 5px #000);
-      transition: transform 0.2s;
-      display: inline-block;
+      transition: transform 0.3s;
     }
-    .social img:hover { transform: scale(1.15); }
-
-    /* -------------------------
-       Responsive habitual
-       ------------------------- */
-    @media (max-width: 600px) {
-      h1 { font-size: 1.2rem; margin-top: 18px; }
-      p  { font-size: 1rem; }
-      .video-wrapper { max-height: 60vh; height: 60vh; }
-      .cta { font-size: 1rem; padding: 10px 18px; }
-    }
-
-    /* -------------------------
-       Cas molt xicotet: reducció general ~10%
-       Aquesta APENES s'activa en pantalles estretes o amb poca alçada.
-       Usant OR (coma) perquè funcione si l'amplada o l'altura és petita.
-       ------------------------- */
-    @media (max-width: 360px), (max-height: 500px) {
-      /* Reduïm 10% elements clau (mida font/padding/altura vídeo) */
-      .video-wrapper {
-        height: calc(66vh * 0.9); /* 10% menys que 66vh */
-        max-height: calc(66vh * 0.9);
-        margin: 14px 0;
-      }
-
-      h1 {
-        font-size: 0.9rem;
-        margin-top: 10px;
-        margin-bottom: 6px;
-      }
-
-      p {
-        font-size: 0.82rem;
-        margin: 6px 12px;
-        max-width: 92%;
-      }
-
-      .cta {
-        font-size: 0.9rem;
-        padding: 10px 16px;
-        margin-bottom: 10px;
-      }
-
-      .social img {
-        width: 28px;
-        height: 28px;
-      }
-
-      .content { padding: 8px; } /* menys padding per guanyar espai */
-    }
-
+    .social img:hover { transform: scale(1.2); }
   </style>
 </head>
 <body>
@@ -180,9 +103,8 @@
 
     <div class="video-wrapper">
       <video autoplay muted loop playsinline
-             poster="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/thumb.png"
-             aria-label="Vídeo vertical Dimonis">
-        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4?v=1" type="video/mp4">
+        poster="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/thumb.png">
+        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4" type="video/mp4">
         El teu navegador no suporta vídeo HTML5.
       </video>
     </div>
@@ -192,13 +114,15 @@
     <a class="cta" href="formulari/form.html">👉 Vull més informació 👈</a>
 
     <div class="social">
-      <a href="https://www.instagram.com/dimonisdelavern/" target="_blank" aria-label="Instagram">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      <a href="https://www.instagram.com/dimonisdelavern/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
       </a>
     </div>
   </div>
 </body>
 </html>
+
+
 
 
 
