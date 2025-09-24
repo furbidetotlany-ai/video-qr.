@@ -1,97 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Avernfest - Dimonis d'Alboraia</title>
+
   <style>
-    html, body {
+    body {
       margin: 0;
-      height: 100%;
-      background: url('https://3.bp.blogspot.com/-w2J9b1Pjo1A/Wf9kR4zRV_I/AAAAAAAAEsw/bfeFfB56txwam6nCbX8L_9IrIMRYtiPHwCLcBGAs/s1600/dimonis.png?v=1') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: Arial, sans-serif;
       color: #fff;
-    }
-
-    .panel {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding: 8px;
-      box-sizing: border-box;
-    }
-
-    .video-container {
-      width: 100%;
-      max-width: 100%;
-      height: 65vh; /* vídeo ocupa 3/4 de l'altura de la pantalla */
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      text-align: center;
       background: #000;
-      border-radius: 12px;
       overflow: hidden;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
+      background-size: auto;
+      z-index: -2;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .video-wrapper {
+      height: 66vh; /* 2/3 de pantalla */
+      aspect-ratio: 9 / 16; /* força format vertical */
+      margin: 20px 0;
       position: relative;
     }
 
-    .video-container video {
-      width: 100%;
+    .video-wrapper video {
       height: 100%;
-      object-fit: cover; /* cobreix tot el contenidor sense deformar */
-      border-radius: 12px;
+      width: 100%;
+      object-fit: cover; /* adapta el poster i el vídeo */
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
       display: block;
     }
 
-    .overlay-text {
-      position: absolute;
-      bottom: 8px;
-      width: 95%;
-      background: rgba(0,0,0,0.5);
-      padding: 8px;
-      border-radius: 8px;
-      box-sizing: border-box;
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px #000;
     }
 
-    .overlay-text .title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 0;
-      text-align: center; /* primer text centrat */
+    p {
+      font-size: 1.2em;
+      margin: 15px 0;
+      text-shadow: 2px 2px 5px #000;
     }
 
-    .overlay-text .desc {
-      font-size: 1rem;
-      margin-top: 4px;
-      text-align: left; /* segon text alineat a l'esquerra */
+    .cta {
+      background: #e60000;
+      padding: 15px 25px;
+      border-radius: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      transition: background 0.3s;
+      margin-top: 10px;
+      display: inline-block;
     }
 
-    @media (max-width: 360px) {
-      .overlay-text .title { font-size: 1rem; }
-      .overlay-text .desc { font-size: 0.9rem; }
+    .cta:hover {
+      background: #ff0000;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      p { font-size: 1em; }
+      .cta { font-size: 1em; padding: 10px 20px; }
+      .video-wrapper { height: 60vh; }
     }
   </style>
 </head>
 <body>
-  <div class="panel">
-    <div class="video-container">
-      <!-- Substitueix l'enllaç pel teu vídeo pujat a GitHub -->
-      <video src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4?v=1" 
-             autoplay muted loop playsinline>
-        El teu navegador no suporta l'element de vídeo.
+  <div class="background"></div>
+
+  <div class="content">
+    <h1>🔥 Som els Dimonis de l'Avern d'Alboraia! 🔥</h1>
+
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline 
+             poster="https://3.bp.blogspot.com/-w2J9b1Pjo1A/Wf9kR4zRV_I/AAAAAAAAEsw/bfeFfB56txwam6nCbX8L_9IrIMRYtiPHwCLcBGAs/s1600/dimonis.png" 
+             aria-label="Vídeo vertical Dimonis">
+        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4?v=1" type="video/mp4">
+        El teu navegador no suporta vídeo HTML5.
       </video>
-      <div class="overlay-text">
-        <div class="title">Dimonis de l'Avern cremant un poble i a la seva gent</div>
-        <div class="desc">D'Alboraia (L'Horta. Pastissos Casolans) i ja portem més de 15 anys a foc i flama!!.</div>
-      </div>
     </div>
+
+    <p>Cremant pobles i tradicions més de 28 anys, foc i flama!.</p>
+
+    <a class="cta" href="https://formulari.com">👉 Vull més informació 👈</a>
   </div>
 </body>
 </html>
-
-
