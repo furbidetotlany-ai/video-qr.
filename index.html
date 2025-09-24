@@ -1,126 +1,146 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avernfest - Dimonis d'Alboraia</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
-
-  <meta name="theme-color" content="#e60000">
-  <meta name="msapplication-navbutton-color" content="#e60000">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dimonis de l'Avern</title>
+  <link rel="icon" href="🔥" />
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden; /* 👈 Evitem scroll */
       font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
+      color: white;
       text-align: center;
+      background: black;
     }
 
-    .background {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
-      background-size: cover;
-      z-index: -1;
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between; /* 👈 reparteix tot verticalment */
-      align-items: center;
-      height: 100vh; /* 👈 sempre exactament la pantalla */
-      padding: 4vh 2vw;
-      box-sizing: border-box;
-    }
-
-    h1 {
-      font-size: 2.5vh; /* 👈 escala amb alçada */
-      color: #ffcc00;
-      text-shadow: 2px 2px 5px #000;
-      margin: 0;
-      white-space: nowrap;
+    header {
+      padding: 10px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #FFD700;
     }
 
     .video-wrapper {
-      flex: 1; /* ocupa l’espai central */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      max-width: 420px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      margin: 18px auto;
+      height: 55vh;              /* mida base */
+      max-height: 55vh;
+      aspect-ratio: 9/16;
+      width: min(90vw, 400px);
     }
+
     .video-wrapper video {
       width: 100%;
       height: 100%;
-      max-height: 60vh; /* 👈 mai passa del 60% d’alçada */
       object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
-      background: #000;
     }
 
     p {
-      font-size: 1.8vh;
-      margin: 0.5em 10%;
-      text-shadow: 2px 2px 5px #000;
+      font-size: 1em;
+      margin: 12px auto;
+      max-width: 90%;
+      line-height: 1.4;
     }
 
-    .cta {
-      background: #e60000;
-      padding: 1em 2em;
-      border-radius: 25px;
-      color: #fff;
-      text-decoration: none;
+    .cta-button {
+      display: inline-block;
+      margin: 15px auto;
+      padding: 12px 25px;
+      background-color: #e60000;
+      color: white;
       font-weight: bold;
-      font-size: 2vh;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-      transition: background 0.3s;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease;
     }
-    .cta:hover { background: #ff0000; }
 
-    .social img {
-      width: 5vh;
-      height: 5vh;
-      filter: drop-shadow(0 0 5px #000);
-      transition: transform 0.3s;
+    .cta-button:hover {
+      background-color: #b30000; /* roig més intens */
     }
-    .social img:hover { transform: scale(1.2); }
+
+    .instagram {
+      margin: 15px 0;
+    }
+
+    .instagram a img {
+      width: 42px;
+      height: 42px;
+    }
+
+    /* Pantalles molt xicotetes */
+    @media (max-width: 360px), (max-height: 500px) {
+      .video-wrapper {
+        height: 48vh;
+        max-height: 48vh;
+        margin: 12px auto;
+      }
+      header {
+        font-size: 1.2em;
+      }
+      p {
+        font-size: 0.9em;
+      }
+    }
+
+    /* Tablets i pantalles mitjanes */
+    @media (min-width: 768px) {
+      .video-wrapper {
+        height: 45vh;
+        max-height: 45vh;
+        width: min(70vw, 500px);
+      }
+      header {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+    }
+
+    /* Pantalles grans */
+    @media (min-width: 1200px) {
+      .video-wrapper {
+        height: 40vh;
+        max-height: 40vh;
+        width: min(60vw, 520px);
+      }
+      header {
+        font-size: 2.2em;
+      }
+      p {
+        font-size: 1.2em;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="background"></div>
+  <header>🔥 Som els Dimonis de l'Avern! 🔥</header>
 
-  <div class="content">
-    <h1>🔥 Som els Dimonis de l'Avern! 🔥</h1>
+  <div class="video-wrapper">
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+      El teu navegador no suporta vídeos HTML5.
+    </video>
+  </div>
 
-    <div class="video-wrapper">
-      <video autoplay muted loop playsinline
-        poster="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/thumb.png">
-        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4" type="video/mp4">
-        El teu navegador no suporta vídeo HTML5.
-      </video>
-    </div>
+  <p>Cremant pobles més de 28 anys, foc i flama!.</p>
 
-    <p>Cremant pobles més de 28 anys, foc i flama!.</p>
+  <a href="formulari/formulari.html" class="cta-button">👉 Vull més informació 👈</a>
 
-    <a class="cta" href="formulari/form.html">👉 Vull més informació 👈</a>
-
-    <div class="social">
-      <a href="https://www.instagram.com/dimonisdelavern/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      </a>
-    </div>
+  <div class="instagram">
+    <a href="https://www.instagram.com/elteuinsta" target="_blank">
+      <img src="instagram.png" alt="Instagram">
+    </a>
   </div>
 </body>
 </html>
+
+
 
 
 
