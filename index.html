@@ -1,144 +1,153 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dimonis de l'Avern</title>
-  <link rel="icon" href="🔥" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avernfest - Dimonis d'Alboraia</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+
+  <!-- Color de la barra del navegador -->
+  <meta name="theme-color" content="#e60000"> <!-- Chrome, Android -->
+  <meta name="msapplication-navbutton-color" content="#e60000"> <!-- Windows Phone -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000"> <!-- iOS Safari -->
+
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      color: white;
+      color: #fff;
       text-align: center;
-      background: black;
+      background: #000;
+      overflow: hidden;
     }
 
-    header {
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
+      background-size: cover;
+      z-index: -2;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100dvh;
       padding: 10px;
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #FFD700;
+      box-sizing: border-box;
     }
 
     .video-wrapper {
+      height: 66vh;
+      aspect-ratio: 9 / 16;
+      margin: 20px 0;
       position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-      margin: 18px auto;
-      height: 55vh;              /* mida base */
-      max-height: 55vh;
-      aspect-ratio: 9/16;
-      width: min(90vw, 400px);
     }
 
     .video-wrapper video {
-      width: 100%;
       height: 100%;
+      width: 100%;
       object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      display: block;
+    }
+
+    h1 {
+      font-size: 1.3em;
+      margin-bottom: 8px;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px #000;
+      white-space: nowrap; /* evita trencar línia */
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     p {
-      font-size: 1em;
-      margin: 12px auto;
-      max-width: 90%;
-      line-height: 1.4;
+      font-size: 0.95rem;
+      margin: 6px 12px;
+      text-shadow: 2px 2px 5px #000;
     }
 
-    .cta-button {
-      display: inline-block;
-      margin: 15px auto;
-      padding: 12px 25px;
-      background-color: #e60000;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
+    .cta {
+      margin-top: 6px;
+      background: #e60000;
+      padding: 12px 20px;
       border-radius: 25px;
-      font-size: 1.1em;
-      transition: background-color 0.3s ease;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      transition: background 0.3s;
+      margin-bottom: 18px;
+      display: inline-block;
     }
 
-    .cta-button:hover {
-      background-color: #b30000; /* roig més intens */
+    .cta:hover {
+      background: #ff0000;
     }
 
-    .instagram {
-      margin: 15px 0;
+    @media (max-width: 600px) {
+      h1 { font-size: 1.1em; }
+      p { font-size: 0.9em; }
+      .cta { font-size: 0.95em; padding: 10px 18px; }
+      .video-wrapper { height: 60vh; }
     }
 
-    .instagram a img {
-      width: 42px;
-      height: 42px;
+    .social {
+      margin-top: 4px;
     }
-
-    /* Pantalles molt xicotetes */
-    @media (max-width: 360px), (max-height: 500px) {
-      .video-wrapper {
-        height: 48vh;
-        max-height: 48vh;
-        margin: 12px auto;
-      }
-      header {
-        font-size: 1.2em;
-      }
-      p {
-        font-size: 0.9em;
-      }
+    
+    .social img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 5px #000);
+      transition: transform 0.3s;
     }
-
-    /* Tablets i pantalles mitjanes */
-    @media (min-width: 768px) {
-      .video-wrapper {
-        height: 45vh;
-        max-height: 45vh;
-        width: min(70vw, 500px);
-      }
-      header {
-        font-size: 2em;
-      }
-      p {
-        font-size: 1.1em;
-      }
-    }
-
-    /* Pantalles grans */
-    @media (min-width: 1200px) {
-      .video-wrapper {
-        height: 40vh;
-        max-height: 40vh;
-        width: min(60vw, 520px);
-      }
-      header {
-        font-size: 2.2em;
-      }
-      p {
-        font-size: 1.2em;
-      }
+    
+    .social img:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
-  <header>🔥 Som els Dimonis de l'Avern! 🔥</header>
+  <div class="background"></div>
 
-  <div class="video-wrapper">
-    <video autoplay muted loop playsinline>
-      <source src="video.mp4" type="video/mp4">
-      El teu navegador no suporta vídeos HTML5.
-    </video>
-  </div>
+  <div class="content">
+    <h1>🔥 Som els Dimonis de l'Avern! 🔥</h1>
 
-  <p>Cremant pobles més de 28 anys, foc i flama!.</p>
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline 
+             poster="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/thumb.png" 
+             aria-label="Vídeo vertical Dimonis">
+        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4?v=1" type="video/mp4">
+        El teu navegador no suporta vídeo HTML5.
+      </video>
+    </div>
 
-  <a href="formulari/formulari.html" class="cta-button">👉 Vull més informació 👈</a>
+    <p>Cremant pobles més de 28 anys, foc i flama!.</p>
 
-  <div class="instagram">
-    <a href="https://www.instagram.com/elteuinsta" target="_blank">
-      <img src="instagram.png" alt="Instagram">
-    </a>
+    <a class="cta" href="formulari/form.html">👉 Vull més informació 👈</a>
+
+    <div class="social">
+      <a href="https://www.instagram.com/dimonisdelavern/" target="_blank" aria-label="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+    </div>
+    
   </div>
 </body>
 </html>
+
+
 
 
 
