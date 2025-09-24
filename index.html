@@ -35,22 +35,22 @@
 
     .content {
       position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      height: 100%;
-      padding: 2vh 2vw; /* millora adaptació */
-      box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* reparteix espai */
+  align-items: center;
+  min-height: 100vh; /* abans era height: 100dvh */
+  padding: 10px;
+  box-sizing: border-box;
     }
 
     .video-wrapper {
-        flex: 1;               /* ocupa espai flexible */
-        height: 55vh;      
-        aspect-ratio: 9 / 16;
-        margin: 1vh 0;
-        position: relative;
+        flex: 1;                /* que ocupe espai flexible */
+  max-height: 65vh;       /* límit perquè deixe espai per sota */
+  aspect-ratio: 9 / 16;
+  margin: 10px 0;
+  position: relative;
     }
 
     .video-wrapper video {
@@ -76,37 +76,38 @@
     }
 
     .cta {
-        font-size: 0.85rem;
-        padding: 8px 14px; /* botó més compacte */
-        margin-bottom: 10px;
         margin-top: 6px; /* acostar botó al text */
-        background: #e60000
-        border-radius: 25px;
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-        transition: background 0.3s;
+  background: #e60000; /* roig inicial (igual al de la barra) */
+  padding: 12px 20px;
+  border-radius: 25px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: background 0.3s;
+  margin-bottom: 18px;
     }
 
     .cta:hover {
-      background: #ff0000;
+      background: #ff0000; /* roig més intens quan passes damunt */
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 400px) {
       h1 { font-size: 1.4rem; }
       p { font-size: 1em; }
       .cta { font-size: 1em; padding: 10px 20px; }
-      .video-wrapper { height: 60vh; }
+      .video-wrapper { max-height: 55vh; }
     }
 
     .social {
       margin-top: 1px;
+      margin-bottom: 10px; 
     }
     
     .social img {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
         filter: drop-shadow(0 0 5px #000);
         transition: transform 0.3s;
     }
@@ -144,6 +145,7 @@
   </div>
 </body>
 </html>
+
 
 
 
