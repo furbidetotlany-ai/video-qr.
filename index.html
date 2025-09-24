@@ -7,9 +7,9 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 
   <!-- Color de la barra del navegador -->
-  <meta name="theme-color" content="#e60000"> <!-- Chrome, Android -->
-  <meta name="msapplication-navbutton-color" content="#e60000"> <!-- Windows Phone -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000"> <!-- iOS Safari -->
+  <meta name="theme-color" content="#e60000">
+  <meta name="msapplication-navbutton-color" content="#e60000">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000">
 
   <style>
     body {
@@ -42,11 +42,11 @@
       height: 100dvh;
       padding: 10px;
       box-sizing: border-box;
-      gap: 6px; /* Espai proporcional entre elements */
     }
 
     .video-wrapper {
-      height: 66vh;
+      flex: 1;
+      max-height: 66vh;
       aspect-ratio: 9 / 16;
       margin: 10px 0;
       position: relative;
@@ -62,25 +62,24 @@
     }
 
     h1 {
-      font-size: 1.2rem;
-      margin: 6px 0 4px 0; /* Aire amb la part superior */
+      font-size: 1em;
+      margin-bottom: 6px;
+      margin-top: 12px; /* respiració extra */
       color: #ffcc00;
       text-shadow: 2px 2px 5px #000;
-      white-space: nowrap;
+      white-space: nowrap; /* que no es trenque en dos línies */
     }
 
     p {
-      font-size: 0.95rem;
-      margin: 4px auto;
+      font-size: 0.9rem;
+      margin: 4px 0;
       text-shadow: 2px 2px 5px #000;
-      max-width: 95%; /* més ample per evitar òrfenes */
-      line-height: 1.3;
-      text-align: center;
+      max-width: 90%; /* marges laterals per evitar paraula òrfena */
     }
 
     .cta {
       margin-top: 6px;
-      background: #e60000;
+      background: #e60000; /* roig normal */
       padding: 12px 20px;
       border-radius: 25px;
       color: #fff;
@@ -89,32 +88,34 @@
       font-size: clamp(0.9rem, 2.8vw, 1.1rem);
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       transition: background 0.3s;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .cta:hover {
-      background: #ff0000;
+      background: #b30000; /* roig més intens */
     }
 
     .social {
-      margin-top: 1px;
+      margin-top: 4px;
+      margin-bottom: 8px;
     }
-
+    
     .social img {
       width: 32px;
       height: 32px;
       filter: drop-shadow(0 0 5px #000);
       transition: transform 0.3s;
     }
-
+    
     .social img:hover {
       transform: scale(1.2);
     }
 
-    @media (max-width: 480px) {
-      h1 { font-size: 1rem; }
-      p  { font-size: 0.85rem; max-width: 90%; }
-      .video-wrapper { height: 60vh; }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.2rem; margin-top: 18px; }
+      p { font-size: 1rem; }
+      .video-wrapper { max-height: 60vh; }
+      .cta { font-size: 1rem; padding: 10px 18px; }
     }
   </style>
 </head>
@@ -133,7 +134,7 @@
       </video>
     </div>
 
-    <p>Cremant pobles més de 28 anys, foc i flama!.</p>
+    <p>Cremant pobles més de 28 anys, foc i flama!</p>
 
     <a class="cta" href="formulari/form.html">👉 Vull més informació 👈</a>
 
@@ -145,6 +146,8 @@
   </div>
 </body>
 </html>
+
+
 
 
 
