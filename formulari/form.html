@@ -31,7 +31,7 @@
       color: #ffcc00;
     }
 
-    .formulari input, .formulari button {
+    .formulari input, .formulari button, .back-btn {
       width: 100%;
       padding: 10px;
       margin: 8px 0;
@@ -57,10 +57,24 @@
     .formulari button:hover {
       background: #ff0000;
     }
+
+    .back-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #444;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #666;
+    }
   </style>
 </head>
 <body>
-  <form action="https://formspree.io/f/abcdef" method="POST" class="formulari">
+  <form action="https://formspree.io/f/mkgqnabo" method="POST" class="formulari">
     <h2>Formulari de contacte</h2>
 
     <input type="text" name="nom" placeholder="Nom *" required>
@@ -68,10 +82,13 @@
     <input type="text" name="localitat" placeholder="Localitat *" required>
     <input type="email" name="_replyto" placeholder="Correu electrònic *" required>
 
-    <!-- Quan acabe, redirigeix a la pàgina principal -->
-    <input type="hidden" name="_next" value="https://el_teu_domini.com/index.html">
+    <!-- Redirigeix a la pàgina principal després d'enviar -->
+    <input type="hidden" name="_next" value="index.html">
 
     <button type="submit">Enviar</button>
+
+    <!-- Botó tornar arrere -->
+    <a href="index.html" class="back-btn">⬅️ Tornar</a>
   </form>
 </body>
 </html>
