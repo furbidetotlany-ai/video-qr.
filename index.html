@@ -18,7 +18,8 @@
       color: #fff;
       text-align: center;
       background: #000;
-      overflow: hidden;
+      overflow: hidden; /* Evitem scroll */
+      height: 100dvh;   /* Garantim que ocupa tota l’alçada */
     }
 
     .background {
@@ -37,18 +38,19 @@
       z-index: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* reparteix espai */
+      justify-content: space-between;
       align-items: center;
-      height: 100dvh; /* ocupa sempre tota la pantalla */
-      padding: 10px;
+      height: 100%;
+      padding: 2vh 2vw; /* millora adaptació */
       box-sizing: border-box;
     }
 
     .video-wrapper {
-      height: 66vh; /* 2/3 de pantalla */
-      aspect-ratio: 9 / 16; /* força format vertical */
-      margin: 20px 0;
-      position: relative;
+        flex: 1;               /* ocupa espai flexible */
+        max-height: 66vh;      /* màxim 2/3 pantalla */
+        aspect-ratio: 9 / 16;
+        margin: 1vh 0;
+        position: relative;
     }
 
     .video-wrapper video {
@@ -61,27 +63,27 @@
     }
 
     h1 {
-      font-size: 1em;
-      margin-bottom: 1px;
+      font-size: clamp(1rem, 2.5vh, 1.6rem); /* adaptatiu */
+      margin: 0.5vh 0;
       color: #ffcc00;
       text-shadow: 2px 2px 5px #000;
     }
 
     p {
-      font-size: 0.9rem;
-      margin: 4px 0;
+      font-size: clamp(0.8rem, 2vh, 1rem); /* adaptatiu */
+      margin: 0.5vh 0;
       text-shadow: 2px 2px 5px #000;
     }
 
     .cta {
-      margin-top: 6px; /* acostar botó al text */
+      margin-top: 6px;
       background: #e60000;
-      padding: 12px 20px;
+      padding: clamp(8px, 1.5vh, 12px) clamp(16px, 3vw, 20px);
       border-radius: 25px;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+      font-size: clamp(0.8rem, 2vh, 1.1rem);
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       transition: background 0.3s;
       margin-bottom: 18px;
@@ -103,10 +105,10 @@
     }
     
     .social img {
-      width: 32px;
-      height: 32px;
-      filter: drop-shadow(0 0 5px #000); /* perquè destaque */
-      transition: transform 0.3s;
+        width: clamp(24px, 4vh, 40px); /* es redimensiona segons pantalla */
+        height: auto;
+        filter: drop-shadow(0 0 5px #000);
+        transition: transform 0.3s;
     }
     
     .social img:hover {
@@ -142,6 +144,7 @@
   </div>
 </body>
 </html>
+
 
 
 
