@@ -92,6 +92,21 @@
       .cta { font-size: 1em; padding: 10px 20px; }
       .video-wrapper { height: 60vh; }
     }
+
+    .social {
+      margin-top: 10px;
+    }
+    
+    .social img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 5px #000); /* perquè destaque */
+      transition: transform 0.3s;
+    }
+    
+    .social img:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
 <body>
@@ -112,9 +127,17 @@
     <p>Cremant pobles més de 28 anys, foc i flama!.</p>
 
     <a class="cta" href="https://formulari.com">👉 Vull més informació 👈</a>
+
+    <div class="social">
+      <a href="https://instagram.com/la_teua_colla" target="_blank" aria-label="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+    </div>
+    
   </div>
 </body>
 </html>
+
 
 
 
