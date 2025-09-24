@@ -4,18 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Avernfest - Dimonis d'Alboraia</title>
+
   <style>
     body {
       margin: 0;
-      padding: 0;
-      height: 100%;
       font-family: Arial, sans-serif;
-      background: #000 url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") no-repeat center center;
-      background-size: contain; /* imatge sencera, sense deformar */
-      background-attachment: fixed;
       color: #fff;
       text-align: center;
+      background: #000;
       overflow: hidden;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
+      <!-- background-size: auto; -->
+      z-index: -2;
     }
 
     .content {
@@ -23,91 +31,89 @@
       z-index: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-between; /* reparteix espai */
       align-items: center;
-      height: 100vh;
+      height: 100dvh; /* ocupa sempre tota la pantalla */
       padding: 10px;
       box-sizing: border-box;
-    }
 
-    h1 {
-      font-size: 6vw; /* adaptatiu */
-      margin: 0 0 10px 0;
-      color: #ffcc00;
-      text-shadow: 2px 2px 5px #000;
     }
 
     .video-wrapper {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      max-height: 66%;
+      height: 66vh; /* 2/3 de pantalla */
+      aspect-ratio: 9 / 16; /* força format vertical */
+      margin: 20px 0;
+      position: relative;
     }
 
     .video-wrapper video {
       height: 100%;
-      width: auto;
+      width: 100%;
+      object-fit: cover; /* adapta el poster i el vídeo */
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      display: block;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      margin-bottom: 10px;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px #000;
     }
 
     p {
-      font-size: 4vw;
+      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
       margin: 4px 0;
       text-shadow: 2px 2px 5px #000;
     }
 
     .cta {
-      font-size: 4.5vw;
-      margin-top: 6px;
+      margin-top: 6px; /* acostar botó al text */
       background: #e60000;
       padding: 12px 20px;
       border-radius: 25px;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      font-size: clamp(0.9rem, 2.8vw, 1.1rem);
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       transition: background 0.3s;
-      margin-bottom: 10px;
-      display: inline-block;
+      margin-bottom: 18px;
     }
 
     .cta:hover {
       background: #ff0000;
     }
 
-    /* Media queries per a millorar en pantalles grans */
-    @media (min-width: 768px) {
-      h1 { font-size: 3vw; }
-      p  { font-size: 2vw; }
-      .cta { font-size: 2.2vw; }
-    }
-
-    @media (min-width: 1200px) {
-      h1 { font-size: 2em; }
-      p  { font-size: 1.2em; }
-      .cta { font-size: 1.2em; }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      p { font-size: 1em; }
+      .cta { font-size: 1em; padding: 10px 20px; }
+      .video-wrapper { height: 60vh; }
     }
   </style>
 </head>
 <body>
+  <div class="background"></div>
+
   <div class="content">
-    <h1>🔥 Som els Dimonis de l'Avern d'Alboraia! 🔥</h1>
+    <h1>🔥 Som els Dimonis de l'Avern! 🔥</h1>
 
     <div class="video-wrapper">
       <video autoplay muted loop playsinline 
              poster="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/thumb.png" 
              aria-label="Vídeo vertical Dimonis">
-        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4" type="video/mp4">
+        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4?v=1" type="video/mp4">
         El teu navegador no suporta vídeo HTML5.
       </video>
     </div>
 
-    <div>
-      <p>Cremant pobles i tradicions més de 28 anys, foc i flama!.</p>
-      <a class="cta" href="https://formulari.com">👉 Vull més informació 👈</a>
-    </div>
+    <p>Cremant pobles més de 28 anys, foc i flama!.</p>
+
+    <a class="cta" href="https://formulari.com">👉 Vull més informació 👈</a>
   </div>
 </body>
 </html>
+
+
