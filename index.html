@@ -7,9 +7,9 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 
   <!-- Color de la barra del navegador -->
-  <meta name="theme-color" content="#e60000">
-  <meta name="msapplication-navbutton-color" content="#e60000">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000">
+  <meta name="theme-color" content="#e60000"> <!-- Chrome, Android -->
+  <meta name="msapplication-navbutton-color" content="#e60000"> <!-- Windows Phone -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000"> <!-- iOS Safari -->
 
   <style>
     body {
@@ -45,10 +45,9 @@
     }
 
     .video-wrapper {
-      flex: 1;
-      max-height: 66vh;
+      height: 66vh; /* 2/3 de pantalla */
       aspect-ratio: 9 / 16;
-      margin: 10px 0;
+      margin: 20px 0;
       position: relative;
     }
 
@@ -63,23 +62,21 @@
 
     h1 {
       font-size: 1em;
-      margin-bottom: 6px;
-      margin-top: 12px; /* respiració extra */
+      margin-bottom: 1px;
       color: #ffcc00;
       text-shadow: 2px 2px 5px #000;
-      white-space: nowrap; /* que no es trenque en dos línies */
+      white-space: nowrap; /* 🔥 Evita que es trenque en dues línies */
     }
 
     p {
       font-size: 0.9rem;
-      margin: 4px 0;
+      margin: 4px 15px; /* 🔥 marges laterals per centrat i evitar paraula òrfena */
       text-shadow: 2px 2px 5px #000;
-      max-width: 90%; /* marges laterals per evitar paraula òrfena */
     }
 
     .cta {
       margin-top: 6px;
-      background: #e60000; /* roig normal */
+      background: #e60000;
       padding: 12px 20px;
       border-radius: 25px;
       color: #fff;
@@ -88,16 +85,29 @@
       font-size: clamp(0.9rem, 2.8vw, 1.1rem);
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       transition: background 0.3s;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
 
     .cta:hover {
-      background: #b30000; /* roig més intens */
+      background: #ff0000;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.4rem; margin-top: 18px; }
+      p { font-size: 1rem; }
+      .video-wrapper { max-height: 60vh; }
+      .cta { font-size: 1rem; padding: 10px 20px; }
+    }
+
+    /* 🔥 Afegit per pantalles molt menudes (ex: 320x480) */
+    @media (max-height: 500px) and (max-width: 360px) {
+      .video-wrapper {
+        max-height: 54vh; /* 10% més reduït */
+      }
     }
 
     .social {
-      margin-top: 4px;
-      margin-bottom: 8px;
+      margin-top: 1px;
     }
     
     .social img {
@@ -109,13 +119,6 @@
     
     .social img:hover {
       transform: scale(1.2);
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.2rem; margin-top: 18px; }
-      p { font-size: 1rem; }
-      .video-wrapper { max-height: 60vh; }
-      .cta { font-size: 1rem; padding: 10px 18px; }
     }
   </style>
 </head>
@@ -134,7 +137,7 @@
       </video>
     </div>
 
-    <p>Cremant pobles més de 28 anys, foc i flama!</p>
+    <p>Cremant pobles més de 28 anys, foc i flama!.</p>
 
     <a class="cta" href="formulari/form.html">👉 Vull més informació 👈</a>
 
@@ -143,9 +146,12 @@
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
       </a>
     </div>
+    
   </div>
 </body>
 </html>
+
+
 
 
 
