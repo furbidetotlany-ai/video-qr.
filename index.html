@@ -22,7 +22,7 @@
       width: 100%;
       height: 100%;
       background: url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
-      <!-- background-size: auto; -->
+      background-size: auto;
       z-index: -2;
     }
 
@@ -31,12 +31,10 @@
       z-index: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* reparteix espai */
+      justify-content: center;
       align-items: center;
-      height: 100dvh; /* ocupa sempre tota la pantalla */
-      padding: 10px;
-      box-sizing: border-box;
-
+      min-height: 100vh;
+      padding: 20px;
     }
 
     .video-wrapper {
@@ -56,30 +54,30 @@
     }
 
     h1 {
-      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-size: 2em;
       margin-bottom: 10px;
       color: #ffcc00;
       text-shadow: 2px 2px 5px #000;
     }
 
     p {
-      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-      margin: 4px 0;
+      font-size: 1.2em;
+      margin: 15px 0;
       text-shadow: 2px 2px 5px #000;
     }
 
     .cta {
-      margin-top: 6px; /* acostar botó al text */
       background: #e60000;
-      padding: 12px 20px;
+      padding: 15px 25px;
       border-radius: 25px;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+      font-size: 1.2em;
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       transition: background 0.3s;
-      margin-bottom: 18px;
+      margin-top: 10px;
+      display: inline-block;
     }
 
     .cta:hover {
@@ -98,22 +96,20 @@
   <div class="background"></div>
 
   <div class="content">
-    <h1>🔥 Som els Dimonis de l'Avern! 🔥</h1>
+    <h1>🔥 Som els Dimonis de l'Avern d'Alboraia! 🔥</h1>
 
     <div class="video-wrapper">
       <video autoplay muted loop playsinline 
-             poster="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/thumb.png" 
+             poster="https://3.bp.blogspot.com/-w2J9b1Pjo1A/Wf9kR4zRV_I/AAAAAAAAEsw/bfeFfB56txwam6nCbX8L_9IrIMRYtiPHwCLcBGAs/s1600/dimonis.png" 
              aria-label="Vídeo vertical Dimonis">
         <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4?v=1" type="video/mp4">
         El teu navegador no suporta vídeo HTML5.
       </video>
     </div>
 
-    <p>Cremant pobles més de 28 anys, foc i flama!.</p>
+    <p>Cremant pobles i tradicions més de 28 anys, foc i flama!.</p>
 
     <a class="cta" href="https://formulari.com">👉 Vull més informació 👈</a>
   </div>
 </body>
 </html>
-
-
