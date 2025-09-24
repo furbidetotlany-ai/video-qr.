@@ -18,8 +18,7 @@
       color: #fff;
       text-align: center;
       background: #000;
-      overflow: hidden; /* Evitem scroll */
-      height: 100dvh;   /* Garantim que ocupa tota l’alçada */
+      overflow: hidden;
     }
 
     .background {
@@ -29,91 +28,112 @@
       width: 100%;
       height: 100%;
       background: url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
-      background-size: cover; /* mostra imatge a mida real */
+      background-size: cover;
       z-index: -2;
     }
 
     .content {
       position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* reparteix espai */
-  align-items: center;
-  min-height: 100vh; /* abans era height: 100dvh */
-  padding: 10px;
-  box-sizing: border-box;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 100dvh; /* abans height */
+      padding: 10px;
+      box-sizing: border-box;
     }
 
     .video-wrapper {
-        flex: 1;                /* que ocupe espai flexible */
-  max-height: 65vh;       /* límit perquè deixe espai per sota */
-  aspect-ratio: 9 / 16;
-  margin: 10px 0;
-  position: relative;
+      height: 66vh; /* 2/3 de pantalla */
+      aspect-ratio: 9 / 16;
+      margin: 20px 0;
+      position: relative;
     }
 
     .video-wrapper video {
       height: 100%;
       width: 100%;
-      object-fit: cover; /* adapta el poster i el vídeo */
+      object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
       display: block;
     }
 
     h1 {
-      font-size: 1em;
-  margin: 12px 0 8px 0; /* 👈 separació superior i inferior */
-  color: #ffcc00;
-  text-shadow: 2px 2px 5px #000;
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px #000;
+      white-space: nowrap; /* sempre en una línia */
     }
 
     p {
-       font-size: 0.9rem;
-  margin: 6px 0 2px 0; /* 👈 més a prop del vídeo */
-  text-shadow: 2px 2px 5px #000;
+      font-size: 1rem;
+      margin: 8px auto;
+      text-shadow: 2px 2px 5px #000;
+      max-width: 85%;     /* marges laterals */
+      line-height: 1.3;
+      text-align: center;
     }
 
     .cta {
-        margin-top: 8px;   /* 👈 més a prop del text */
-  margin-bottom: 10px; /* 👈 que no quede massa baix */
-  background: #e60000;
-  padding: 12px 20px;
-  border-radius: 25px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: clamp(0.9rem, 2.8vw, 1.1rem);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-  transition: background 0.3s;
+      margin-top: 6px;
+      background: #e60000;
+      padding: 12px 20px;
+      border-radius: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      transition: background 0.3s;
+      margin-bottom: 18px;
     }
 
     .cta:hover {
-      background: #ff0000; /* roig més intens quan passes damunt */
-    }
-
-    @media (max-width: 400px) {
-      h1 { font-size: 1.4rem; }
-      p { font-size: 1em; }
-      .cta { font-size: 1em; padding: 10px 20px; }
-      .video-wrapper { max-height: 55vh; }
+      background: #ff0000;
     }
 
     .social {
-       margin-top: 10px;   /* 👈 separem-la un poc del botó */
-  margin-bottom: 12px; /* 👈 perquè no quede enganxada a la vora */
+      margin-top: 1px;
     }
     
     .social img {
-        width: 28px;
-        height: 28px;
-        filter: drop-shadow(0 0 5px #000);
-        transition: transform 0.3s;
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 5px #000);
+      transition: transform 0.3s;
     }
     
     .social img:hover {
       transform: scale(1.2);
+    }
+
+    /* Pantalles xicotetes */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.2rem; }
+      p  { font-size: 0.9rem; }
+    }
+
+    /* Pantalles mitjanes */
+    @media (min-width: 481px) and (max-width: 768px) {
+      h1 { font-size: 1.4rem; }
+      p  { font-size: 1rem; }
+    }
+
+    /* Pantalles grans */
+    @media (min-width: 769px) {
+      h1 { font-size: 1.8rem; }
+      p  { font-size: 1.1rem; }
+    }
+
+    /* Quan la pantalla és molt baixa (per ex. 320x480) */
+    @media (max-height: 500px) {
+      h1 { margin-top: 8px; }
+      p { margin-top: 6px; }
+      .cta { margin-bottom: 8px; }
+      .social { margin-bottom: 4px; }
     }
   </style>
 </head>
@@ -145,27 +165,4 @@
   </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
