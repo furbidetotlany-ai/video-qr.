@@ -47,7 +47,7 @@
 
     .video-wrapper {
         flex: 1;               /* ocupa espai flexible */
-        max-height: 66vh;      /* màxim 2/3 pantalla */
+        height: 55vh;      
         aspect-ratio: 9 / 16;
         margin: 1vh 0;
         position: relative;
@@ -63,30 +63,30 @@
     }
 
     h1 {
-      font-size: clamp(1rem, 2.5vh, 1.6rem); /* adaptatiu */
+      font-size: 1rem;
       margin: 0.5vh 0;
       color: #ffcc00;
       text-shadow: 2px 2px 5px #000;
     }
 
     p {
-      font-size: clamp(0.8rem, 2vh, 1rem); /* adaptatiu */
+      font-size: 0.8rem;
       margin: 0.5vh 0;
       text-shadow: 2px 2px 5px #000;
     }
 
     .cta {
+        font-size: 0.85rem;
+        padding: 8px 14px; /* botó més compacte */
+        margin-bottom: 10px;
         margin-top: 6px; /* acostar botó al text */
-        background: #e60000;
-        padding: clamp(8px, 2vh, 12px) clamp(14px, 4vw, 20px); /* padding adaptatiu */
+        background: #e60000
         border-radius: 25px;
         color: #fff;
         text-decoration: none;
         font-weight: bold;
-        font-size: clamp(0.9rem, 2.2vh, 1.1rem); /* adaptatiu */
         box-shadow: 0 4px 8px rgba(0,0,0,0.5);
         transition: background 0.3s;
-        margin-bottom: 2vh; /* marge adaptatiu */
     }
 
     .cta:hover {
@@ -105,8 +105,8 @@
     }
     
     .social img {
-        width: clamp(24px, 4vh, 40px); /* es redimensiona segons pantalla */
-        height: auto;
+        width: 24px;
+        height: 24px;
         filter: drop-shadow(0 0 5px #000);
         transition: transform 0.3s;
     }
@@ -144,6 +144,7 @@
   </div>
 </body>
 </html>
+
 
 
 
