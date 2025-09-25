@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulari - Dimonis de l'Avern</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+
+  <!-- Color de la barra del navegador -->
+  <meta name="theme-color" content="#e60000"> <!-- Chrome, Android -->
+  <meta name="msapplication-navbutton-color" content="#e60000"> <!-- Windows Phone -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000"> <!-- iOS Safari -->
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #000 url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .formulari {
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .formulari h2 {
+      margin-bottom: 15px;
+      color: #ffcc00;
+    }
+
+    .formulari input, .formulari button, .back-btn {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .formulari input {
+      background: rgba(255,255,255,0.95);
+      color: #000;
+    }
+
+    .formulari button {
+      background: #e60000;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .formulari button:hover {
+      background: #ff0000;
+    }
+
+    .back-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #444;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- https://formspree.io/f/xanpygnb -->
+  <form action="https://formspree.io/f/mkgqnabo" method="POST" class="formulari">
+    <h2>Formulari de contacte</h2>
+
+    <input type="text" name="nom" placeholder="Nom *" required>
+    <input type="tel" name="telefon" placeholder="Telèfon">
+    <input type="text" name="localitat" placeholder="Localitat *" required>
+    <input type="email" name="_replyto" placeholder="Correu electrònic *" required>
+
+    <!-- Redirigeix a la pàgina principal després d'enviar -->
+    <input type="hidden" name="_next" value="index.html">
+
+    <button type="submit">Enviar</button>
+
+    <!-- Botó tornar arrere -->
+    
+    <a href="../index2.html" class="back-btn">🏃‍♀️💨🔥🔥🔥 Tornar</a>
+  </form>
+</body>
+</html>
