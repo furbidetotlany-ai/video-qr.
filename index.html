@@ -6,118 +6,101 @@
   <title>Avernfest - Dimonis d'Alboraia</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 
-  <!-- Color de la barra del navegador -->
-  <meta name="theme-color" content="#e60000"> <!-- Chrome, Android -->
-  <meta name="msapplication-navbutton-color" content="#e60000"> <!-- Windows Phone -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000"> <!-- iOS Safari -->
+  <meta name="theme-color" content="#e60000">
+  <meta name="msapplication-navbutton-color" content="#e60000">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000">
 
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
       font-family: Arial, sans-serif;
+      background: #000;
       color: #fff;
       text-align: center;
-      background: #000;
-      overflow: hidden;
     }
 
     .background {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
       background-size: cover;
-      z-index: -2;
+      z-index: -1;
     }
 
     .content {
-      position: relative;
-      z-index: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      height: 100dvh;
-      padding: 10px;
+      height: 100vh;
+      padding: 4vh 2vw;
       box-sizing: border-box;
     }
 
-    .video-wrapper {
-      height: 66vh; /* 2/3 de pantalla */
-      aspect-ratio: 9 / 16;
-      margin: 20px 0;
-      position: relative;
+    h1 {
+      font-size: 2.5vh;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px #000;
+      margin: 0;
+      white-space: nowrap;
     }
 
-    .video-wrapper video {
-      height: 100%;
+    .video-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
+      max-width: 420px;
+    }
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      max-height: 60vh;
       object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
-      display: block;
-    }
-
-    h1 {
-      font-size: 1em;
-      margin-bottom: 1px;
-      color: #ffcc00;
-      text-shadow: 2px 2px 5px #000;
+      background: #000;
     }
 
     p {
-      font-size: 0.9rem;
-      margin: 4px 0;
+      font-size: 1.8vh;
+      margin: 0.5em 10%;
       text-shadow: 2px 2px 5px #000;
     }
 
     .cta {
-      margin-top: 6px;
       background: #e60000;
-      padding: 12px 20px;
+      padding: 1em 2em;
       border-radius: 25px;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+      font-size: 2vh;
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       transition: background 0.3s;
-      margin-bottom: 18px;
     }
+    .cta:hover { background: #ff0000; }
 
-    .cta:hover {
-      background: #ff0000;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.4rem; }
-      p { font-size: 1em; }
-      .cta { font-size: 1em; padding: 10px 20px; }
-      .video-wrapper { height: 60vh; }
-    }
-
-    /* 📱 Només per a pantalles molt xicotetes */
-    @media (max-width: 400px) {
-      .video-wrapper {
-        height: 55vh; /* ~10% més menut que 60vh */
-      }
-    }
-
-    .social {
-      margin-top: 1px;
-    }
-    
     .social img {
-      width: 32px;
-      height: 32px;
+      width: 5vh;
+      height: 5vh;
       filter: drop-shadow(0 0 5px #000);
       transition: transform 0.3s;
     }
-    
-    .social img:hover {
-      transform: scale(1.2);
+    .social img:hover { transform: scale(1.2); }
+
+    /* 🔹 ESTIL ESPECIAL PER A PANTALLES MENUDES */
+    @media (max-width: 400px) {
+      h1 { font-size: 2.1vh; }
+      .video-wrapper video { max-height: 50vh; } /* vídeo 10% més baix */
+      p { font-size: 1.6vh; margin: 0.5em 8%; }
+      .cta { font-size: 1.7vh; padding: 0.7em 1.4em; }
+      .social img { width: 4vh; height: 4vh; }
     }
   </style>
 </head>
@@ -128,10 +111,9 @@
     <h1>🔥 Som els Dimonis de l'Avern! 🔥</h1>
 
     <div class="video-wrapper">
-      <video autoplay muted loop playsinline 
-             poster="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/thumb.png" 
-             aria-label="Vídeo vertical Dimonis">
-        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4?v=1" type="video/mp4">
+      <video autoplay muted loop playsinline
+        poster="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/thumb.png">
+        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4" type="video/mp4">
         El teu navegador no suporta vídeo HTML5.
       </video>
     </div>
@@ -141,21 +123,10 @@
     <a class="cta" href="formulari/form.html">👉 Vull més informació 👈</a>
 
     <div class="social">
-      <a href="https://www.instagram.com/dimonisdelavern/" target="_blank" aria-label="Instagram">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      <a href="https://www.instagram.com/dimonisdelavern/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
       </a>
     </div>
-    
   </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
