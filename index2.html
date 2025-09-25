@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avernfest - Dimonis d'Alboraia</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+
+  <!-- Color de la barra del navegador -->
+  <meta name="theme-color" content="#e60000">
+  <meta name="msapplication-navbutton-color" content="#e60000">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e60000">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      background: #000;
+      overflow: hidden; /* Evita scroll */
+      height: 100vh;   /* Força a cabre dins pantalla */
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/fons.png") center center no-repeat;
+      background-size: cover;
+      z-index: -2;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      padding: 4px; /* més ajustat per cabre tot */
+      box-sizing: border-box;
+    }
+
+    .video-wrapper {
+      height: 52vh; /* un poc més menut */
+      aspect-ratio: 9 / 16;
+      margin: 6px 0;
+      position: relative;
+    }
+
+    .video-wrapper video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.7);
+      display: block;
+    }
+
+    h1 {
+      font-size: 1rem;
+      margin: 2px 0;
+      color: #ffcc00;
+      text-shadow: 1px 1px 3px #000;
+      white-space: nowrap; /* evita que es trenque en 2 línies */
+    }
+
+    p {
+      font-size: 0.85rem;
+      margin: 2px 8px;
+      text-shadow: 1px 1px 3px #000;
+      max-width: 90%;
+    }
+
+    .cta {
+      margin-top: 4px;
+      background: #e60000;
+      padding: 8px 16px;
+      border-radius: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+      transition: background 0.3s;
+      margin-bottom: 6px;
+    }
+
+    .cta:hover {
+      background: #ff0000;
+    }
+
+    .social {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .social img {
+      width: 26px;
+      height: 26px;
+      filter: drop-shadow(0 0 3px #000);
+      transition: transform 0.3s;
+    }
+
+    .social img:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="content">
+    <h1>🔥 Som els Dimonis de l'Avern! 🔥</h1>
+
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline
+             poster="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/fons/thumb.png"
+             aria-label="Vídeo vertical Dimonis">
+        <source src="https://raw.githubusercontent.com/furbidetotlany-ai/video-qr./main/video/videodimonisavernalboraia_baixa.mp4?v=1" type="video/mp4">
+        El teu navegador no suporta vídeo HTML5.
+      </video>
+    </div>
+
+    <p>Cremant pobles més de 28 anys,<br> foc i flama!.</p>
+
+    <a class="cta" href="../formulari/form2.html">👉 Vull més informació 👈</a>
+
+    <div class="social">
+      <a href="https://www.instagram.com/dimonisdelavern/" target="_blank" aria-label="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+    </div>
+  </div>
+</body>
+</html>
